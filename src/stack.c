@@ -32,11 +32,11 @@ void destroy_stack(Stack* stack) {
 }
 
 bool is_full(Stack* stack) {
-    return false;
+    return stack->size >= stack->capacity;
 }
 
 bool is_empty(Stack* stack) {
-    return true;
+    return stack->size == 0;
 }
 
 bool pop(Stack* stack, int* value) {
