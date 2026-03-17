@@ -40,13 +40,28 @@ bool is_empty(Stack* stack) {
 }
 
 bool pop(Stack* stack, int* value) {
-    return false;
+    if (is_empty(stack)) return false;
+
+    *value = stack->collection[stack->size - 1];
+    stack->collection[stack->size - 1] = 0;
+    stack->size--;
+
+    return true;
 }
 
 bool push(Stack* stack, int value) {
-    return false;
+    if (is_full(stack)) return false;
+
+    stack->collection[stack->size] = value;
+    stack->size++;
+
+    return true;
 }
 
 bool peek(Stack* stack, int* value) {
-    return false;
+    if (is_empty(stack)) return false;
+
+    *value = stack->collection[stack->size - 1];
+
+    return true;
 }
