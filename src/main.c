@@ -1,38 +1,32 @@
 #include <stdio.h>
-#include "stack.h"
+#include "queue.h"
 
 
 int main(void) {
-    Stack* stack = create_stack(6);
-    printf("Stack created\n");
 
-    printf("Stack is empty: %d\n",is_empty(stack));
+    Queue* queue = create_queue();
 
-    printf("stack is full: %d\n", is_full(stack));
+    enqueue(queue, 1);
+    enqueue(queue, 2);
 
-    push(stack, 5);
-    push(stack, 6);
-    push(stack, 7);
-    push(stack, 8);
-    push(stack, 9);
-    push(stack, 10);
+    enqueue(queue, 3);
 
-    printf("Stack size: %llu\n", stack->size);
-    int random_value = 0;
-    peek(stack, &random_value);
-    printf("Peek stack: %d\n", random_value);
+    enqueue(queue, 4);
 
-    for (int i = 0; i < 6; i++) {
-        if (is_empty(stack)) break;
-        peek(stack, &random_value);
-        printf("Peek stack: %d\n", random_value);
+    printf("Size of queue is %d\n", size(queue));
 
-        pop(stack, &random_value);
-        printf("Pop stack: %d\n", random_value);
+    bool peek_status = false;
+    bool dequeue_status = true;
+
+    int peek_result = peek_queue(queue, &peek_status);
+    if (peek_status) printf("Peeking from queue is %d\n", peek_result);
+
+    while (dequeue_status) {
+        int temp = dequeue(queue, &dequeue_status);
+        printf("Dequeuing from queue is %d\n", temp);
     }
 
-    destroy_stack(stack);
-    printf("Stack destroyed\n");
+    destroy_queue(queue);
 
     return 0;
 }

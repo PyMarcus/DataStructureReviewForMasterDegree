@@ -7,4 +7,6 @@ include_directories(include)
 
 add_executable(datastructure  src/main.c
         src/stack.c
-        include/stack.h)
+        include/stack.h
+        include/queue.h
+        src/queue.c)
