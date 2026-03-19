@@ -18,6 +18,10 @@ int main(void) {
 
     print_graph(graph);
 
+    int visited[5] = {0, 0, 0, 0, 0};
+
+    dfs(graph, 0, visited);
+
     destroy_graph(graph);
 
     return 0;

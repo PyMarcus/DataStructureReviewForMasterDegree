@@ -127,3 +127,21 @@ void print_graph(Graph *graph) {
         printf("\n");
     }
 }
+
+void dfs(Graph *graph, int initial_vertex, int* visited) {
+    if (graph == NULL) return;
+    if (initial_vertex < 0 || initial_vertex >= graph->num_vertices) return;
+    visited[initial_vertex] = 1;
+    printf("Visiting vertex %d \n", initial_vertex);
+
+    // visitando vizinhos do vértice atual
+    for (int j = 0; j < graph->degree[initial_vertex]; j++) {
+
+        int neighboor = graph->edges[initial_vertex][j];
+
+        if (!visited[neighboor]) {
+            dfs(graph, neighboor, visited);
+        }
+    }
+
+}

@@ -35,3 +35,7 @@ void destroy_graph(Graph *graph);
 bool create_edge(Graph *graph, int origin, int destination, bool is_digraph, float weight);
 bool remove_edge(Graph *graph, int origin, int destination, bool is_digraph);
 void print_graph(Graph *graph);
+// busca em profundidade: percorre o grafo procurando componentes conectados antes de realizar o backtracking.
+void dfs(Graph *graph, int initial_vertex, int* visited);
+// busca em largura: busca os vertices vizinhos e repete para vertices n explorados. Usado para a char o menor caminho e componentes conectedas a um vértice
+void bfs();
