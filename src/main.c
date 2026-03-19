@@ -1,32 +1,24 @@
 #include <stdio.h>
-#include "queue.h"
+#include <stdbool.h>
+#include "graph.h"
 
 
 int main(void) {
 
-    Queue* queue = create_queue();
-
-    enqueue(queue, 1);
-    enqueue(queue, 2);
-
-    enqueue(queue, 3);
-
-    enqueue(queue, 4);
-
-    printf("Size of queue is %d\n", size(queue));
-
-    bool peek_status = false;
-    bool dequeue_status = true;
-
-    int peek_result = peek_queue(queue, &peek_status);
-    if (peek_status) printf("Peeking from queue is %d\n", peek_result);
-
-    while (dequeue_status) {
-        int temp = dequeue(queue, &dequeue_status);
-        printf("Dequeuing from queue is %d\n", temp);
+    Graph *graph = create_graph(3, 2, false);
+    if (graph == NULL) {
+        printf("Error creating graph\n");
+        return 1;
     }
+    printf("graph created\n");
 
-    destroy_queue(queue);
+    create_edge(graph, 0, 1, false, 0.0);
+    create_edge(graph, 0, 2, false, 0.0);
+    create_edge(graph, 1, 2, false, 0.0);
+
+    print_graph(graph);
+
+    destroy_graph(graph);
 
     return 0;
 }

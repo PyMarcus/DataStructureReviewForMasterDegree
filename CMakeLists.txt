@@ -9,4 +9,6 @@ add_executable(datastructure  src/main.c
         src/stack.c
         include/stack.h
         include/queue.h
-        src/queue.c)
+        src/queue.c
+        include/graph.h
+        src/graph.c)
