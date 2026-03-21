@@ -143,5 +143,10 @@ void dfs(Graph *graph, int initial_vertex, int* visited) {
             dfs(graph, neighboor, visited);
         }
     }
-
 }
+
+void bfs(Graph *graph, int initial_vertex, int* visited) {
+    
+}
+
+

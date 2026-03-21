@@ -20,6 +20,14 @@ int main(void) {
 
     int visited[5] = {0, 0, 0, 0, 0};
 
+    printf("bfs:\n");
+    dfs(graph, 0, visited);
+
+    printf("dfs:\n");
+
+    for (int i = 0; i < 5; i++) {
+        visited[i] = 0;
+    }
     dfs(graph, 0, visited);
 
     destroy_graph(graph);
